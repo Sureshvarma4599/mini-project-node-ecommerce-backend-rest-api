@@ -1,0 +1,12 @@
+const express = require('express')
+const bodyParser = require('body-parser')
+const mongoose = require('./db.js')
+ var server = express();
+ var userRouter=require('./routes/UserRoutes.js')
+ var orderRouter=require('./routes/OrderRoutes.js')
+ var productRouter=require('./routes/ProductRoutes.js')
+ server.use(bodyParser.json())
+ server.listen(3000,()=>console.log("server started at port 3000"))
+ server.use('/user/',userRouter)
+ server.use('/order/',orderRouter)
+ server.use('/product/',productRouter)
